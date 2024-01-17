@@ -1,0 +1,27 @@
+_: &email jyjeon@outlook.com
+_: &solvers
+- http01:
+    ingress:
+      ingressClassName: nginx
+
+# -- Array of cert-manager Issuer [configurations](https://cert-manager.io/docs/configuration/) (see [examples](./examples/))
+issuers: []
+
+# -- Array of cert-manager ClusterIssuer [configurations](https://cert-manager.io/docs/configuration/) (see [examples](./examples/))
+clusterIssuers:
+- name: letsencrypt-prod
+  spec:
+    acme:
+      email: *email
+      server: https://acme-v02.api.letsencrypt.org/directory
+      privateKeySecretRef:
+        name: letsencrypt-prod
+      solvers: *solvers
+- name: letsencrypt-staging
+  spec:
+    acme:
+      email: *email
+      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      privateKeySecretRef:
+        name: letsencrypt-staging
+      solvers: *solvers

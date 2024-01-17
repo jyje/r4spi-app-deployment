@@ -1,15 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager
+  name: cert-manager-issuers
 spec:
   destination:
-    namespace: cert-manager
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/cert-manager
+    path: apps/cert-manager-issuers
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
-    targetRevision: main
+    targetRevision: develop
     helm:
       valueFiles:
         - values.yaml
