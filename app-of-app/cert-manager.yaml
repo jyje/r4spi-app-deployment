@@ -9,7 +9,7 @@ spec:
   source:
     path: apps/cert-manager
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
-    targetRevision: develop
+    targetRevision: main
     helm:
       valueFiles:
         - values.yaml
