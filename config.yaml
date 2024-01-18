@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app
+  name: config
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
   source:
-    path: app-of-app
+    path: configs
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: main
     directory:
