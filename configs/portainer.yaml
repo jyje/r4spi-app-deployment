@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portainer
+spec:
+  destination:
+    namespace: portainer
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: apps/portainer
+    repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
+  syncPolicy:
+    automated: {}
