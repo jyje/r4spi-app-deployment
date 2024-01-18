@@ -4,6 +4,7 @@ metadata:
   name: config
 spec:
   destination:
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
     path: configs
