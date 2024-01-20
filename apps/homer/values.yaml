@@ -229,12 +229,20 @@ configmap:
             tag: "keycloak #login #iam #rabc"
             url: https://keycloak.app.jyje.online
 
+        - name: Databases
+          icon: fas fa-database
+          items:
           - name: MinIO
             type: Ping
             logo: https://min.io/resources/img/logo/MINIO_Bird.png
             subtitle: Object storage compatible with S3
             tag: "minio #operator #dbaas #s3 #storage"
             url: https://minio.app.jyje.online
+
+          - name: CloudNativePG
+            logo: https://cloudnative-pg.io/images/hero_image.svg
+            subtitle: PostgreSQL database cluster
+            tag: "cnpg #operator #dbaas #psql #storage"
 
 
         # - name: Device
