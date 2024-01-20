@@ -217,7 +217,7 @@ configmap:
 
           - name: Argo CD
             type: Ping
-            logo: https://argoproj.github.io/argo-workflows/assets/logo.png
+            logo: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
             subtitle: App deployment
             tag: "argocd #argo #gitops #cicd"
             url: https://cd.app.jyje.online
