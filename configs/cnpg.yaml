@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg
+spec:
+  destination:
+    namespace: cnpg-system
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: apps/cloudnative-pg
+    repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
+    targetRevision: develop
+    helm:
+      valueFiles:
+        - values.yaml
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated: {}
