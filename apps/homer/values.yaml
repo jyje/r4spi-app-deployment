@@ -184,14 +184,14 @@ configmap:
             type: Ping
             logo: https://grafana.com/static/img/menu/grafana2.svg
             subtitle: Cluster monitoring
-            tag: "monitoring #dashboard #plg"
+            tag: "grafana #monitoring #dashboard #plg"
             url: https://grafana.app.jyje.online
 
           - name: Argo Workflows
             type: Ping
             logo: https://argoproj.github.io/argo-workflows/assets/logo.png
             subtitle: Workflow engine
-            tag: "argo #workflow #pipeline #cicd"
+            tag: "argo-workflows #argo #workflow #pipeline #cicd"
             url: https://workflow.app.jyje.online
 
         - name: Utilities
@@ -201,7 +201,7 @@ configmap:
             type: Ping
             logo: logo.png
             subtitle: This dashboard
-            tag: "homer #dashboard"
+            tag: "homer #dashboard #monitoring"
             url: https://app.jyje.online
 
           - name: Portainer
@@ -212,14 +212,14 @@ configmap:
             type: Ping
             logo: https://avatars.githubusercontent.com/u/22225832
             subtitle: Cluster administration
-            tag: "admin"
+            tag: "portainer #admin #catalog"
             url: "https://portainer.app.jyje.online"
 
           - name: Argo CD
             type: Ping
             logo: https://argoproj.github.io/argo-workflows/assets/logo.png
             subtitle: App deployment
-            tag: "argo #gitops #cicd"
+            tag: "argocd #gitops #cicd"
             url: https://cd.app.jyje.online
 
           - name: Keycloak
@@ -232,8 +232,8 @@ configmap:
           - name: MinIO
             type: Ping
             logo: https://min.io/resources/img/logo/MINIO_Bird.png
-            subtitle: Object storage
-            tag: "minio #s3 #storage"
+            subtitle: Object storage compatible with S3
+            tag: "minio #operator #dbaas #s3 #storage"
             url: https://minio.app.jyje.online
 
 
