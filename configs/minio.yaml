@@ -9,7 +9,7 @@ spec:
   source:
     path: apps/minio
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
-    targetRevision: feature/add-minio-operator
+    targetRevision: main
     helm:
       valueFiles:
         - values.yaml
