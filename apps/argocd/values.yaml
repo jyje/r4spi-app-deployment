@@ -1492,12 +1492,13 @@ server:
   name: server
 
   # -- The number of server pods to run
-  replicas: 1
+  replicas: 2
 
   ## Argo CD server Horizontal Pod Autoscaler
   autoscaling:
     # -- Enable Horizontal Pod Autoscaler ([HPA]) for the Argo CD server
-    enabled: false
+    # enabled: false
+    enabled: true
     # -- Minimum number of replicas for the Argo CD server [HPA]
     minReplicas: 1
     # -- Maximum number of replicas for the Argo CD server [HPA]
