@@ -229,6 +229,13 @@ configmap:
             tag: "keycloak #login #iam #rabc"
             url: https://keycloak.app.jyje.online
 
+          - name: MinIO
+            type: Ping
+            logo: https://min.io/resources/img/logo/MINIO_Bird.png
+            subtitle: Object storage
+            tag: "minio #s3 #storage"
+            url: https://minio.app.jyje.online
+
 
         # - name: Device
         #   icon: fas fa-screwdriver-wrench
