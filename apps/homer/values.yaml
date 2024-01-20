@@ -177,8 +177,8 @@ configmap:
         #         tag: "app"
         #         url: "#"
         services:
-        - name: Services
-          icon: fas fa-microchip
+        - name: Core Apps
+          icon: fas fa-rocket
           items:
           - name: Grafana
             type: Ping
@@ -194,8 +194,8 @@ configmap:
             tag: "argo-workflows #argo #workflow #pipeline #cicd"
             url: https://workflow.app.jyje.online
 
-        - name: Utilities
-          icon: fas fa-screwdriver-wrench
+        - name: Common Apps
+          icon: fas fa-microchip
           items:
           - name: Homer
             type: Ping
@@ -219,7 +219,7 @@ configmap:
             type: Ping
             logo: https://argoproj.github.io/argo-workflows/assets/logo.png
             subtitle: App deployment
-            tag: "argocd #gitops #cicd"
+            tag: "argocd #argo #gitops #cicd"
             url: https://cd.app.jyje.online
 
           - name: Keycloak
