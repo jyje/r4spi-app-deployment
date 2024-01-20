@@ -9,7 +9,7 @@ spec:
   source:
     path: apps/portainer
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
-    targetRevision: main
+    targetRevision: develop
     helm:
       valueFiles:
         - values.yaml
