@@ -1929,6 +1929,12 @@ server:
     # -- Additional ingress annotations
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers "Access-Control-Allow-Origin: $http_origin";
+      nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+      nginx.ingress.kubernetes.io/cors-allow-headers: X-Api-Key
+      nginx.ingress.kubernetes.io/cors-allow-methods: HEAD
+      nginx.ingress.kubernetes.io/enable-cors: "true"
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
