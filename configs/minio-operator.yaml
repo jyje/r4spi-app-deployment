@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio
+  name: minio-operator
 spec:
   destination:
     namespace: minio-operator
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/minio
+    path: apps/minio-operator
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
     helm:
