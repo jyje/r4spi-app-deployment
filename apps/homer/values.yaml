@@ -228,9 +228,14 @@ configmap:
             tag: "keycloak #login #iam #rabc"
             url: https://keycloak.app.jyje.online
 
-        - name: Databases
+        - name: Storage
           icon: fas fa-database
           items:
+          - name: Longhorn
+            logo: https://avatars.githubusercontent.com/u/51335366
+            subtitle: Block storage for Kubernetes
+            tag: "longhorn #storageclass #storage #rancher"
+
           - name: MinIO
             type: Ping
             logo: https://min.io/resources/img/logo/MINIO_Bird.png
@@ -242,6 +247,7 @@ configmap:
             logo: https://cloudnative-pg.io/images/hero_image.svg
             subtitle: PostgreSQL database cluster
             tag: "cnpg #operator #dbaas #psql #storage"
+
 
 
         # - name: Device
