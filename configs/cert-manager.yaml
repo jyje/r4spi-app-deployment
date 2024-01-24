@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cert-manager
+  annotations:
+    argocd.argoproj.io/hook: PreSync
 spec:
   destination:
     namespace: cert-manager
@@ -18,3 +20,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
     automated: {}
+    retry:
+      limit: 20
