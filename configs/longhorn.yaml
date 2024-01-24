@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: longhorn
   annotations:
-    argocd.argoproj.io/sync-wave: "-1000"
+    argocd.argoproj.io/hook: PreSync
 spec:
   destination:
     namespace: longhorn-system
