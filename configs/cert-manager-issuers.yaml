@@ -4,6 +4,7 @@ metadata:
   name: cert-manager-issuers
   annotations:
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
@@ -17,5 +18,3 @@ spec:
   project: default
   syncPolicy:
     automated: {}
-    retry:
-      limit: 20

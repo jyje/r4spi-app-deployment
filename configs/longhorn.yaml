@@ -4,6 +4,7 @@ metadata:
   name: longhorn
   annotations:
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   destination:
     namespace: longhorn-system
@@ -20,5 +21,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
     automated: {}
-    retry:
-      limit: 20

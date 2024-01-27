@@ -18,5 +18,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
     automated: {}
-    retry:
-      limit: 20
