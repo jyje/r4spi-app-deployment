@@ -103,7 +103,7 @@ persistence:
   removeSnapshotsDuringFilesystemTrim: ignored # "enabled" or "disabled" otherwise
 
 helmPreUpgradeCheckerJob:
-  enabled: true
+  enabled: false
 
 csi:
   kubeletRootDir: /var/snap/microk8s/common/var/lib/kubelet # https://github.com/balchua/do-microk8s/blob/master/docs/longhorn.md
