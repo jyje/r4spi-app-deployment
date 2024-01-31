@@ -154,9 +154,9 @@ operator:
   # If no worker nodes can meet the specified requests, the Operator may fail to deploy.
   resources:
     requests:
-      cpu: 200m
-      memory: 256Mi
-      ephemeral-storage: 500Mi
+      cpu: 50m
+      memory: 50Mi
+      ephemeral-storage: 100Mi
 
 ###
 # Root key for Operator Console
@@ -259,8 +259,8 @@ console:
   # If no worker nodes can meet the specified requests, the Console may fail to deploy.
   resources:
     requests:
-      cpu: 0.25
-      memory: 512Mi
+      cpu: 50m
+      memory: 50Mi
   ###
   # The Kubernetes `SecurityContext <https://kubernetes.io/docs/tasks/configure-pod-container/security-context/>`__ to use for deploying Operator Console resources.
   #
