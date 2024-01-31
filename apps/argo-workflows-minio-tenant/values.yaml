@@ -99,7 +99,7 @@ tenant:
       name: pool
       ###
       # The number of volumes attached per MinIO Tenant Pod / Server.
-      volumesPerServer: 2
+      volumesPerServer: 3
       ###
       # The capacity per volume requested per MinIO Tenant Pod.
       size: 10Gi
