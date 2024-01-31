@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: cnpg-argo
+  name: cnpg-cluster-r4iny
 spec:
   instances: 3
 
@@ -18,4 +18,4 @@ spec:
   # Persistent storage configuration
   storage:
     storageClass: 
-    size: 1Gi
+    size: 10Gi
