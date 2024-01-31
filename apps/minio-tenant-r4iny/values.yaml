@@ -16,7 +16,7 @@
 #    secretKey: minio123
 #
 secrets:
-  name: minio-argo-env-configuration
+  name: minio-r4iny-env-configuration
   accessKey: minio 
   secretKey: minio123
 ###
@@ -33,7 +33,7 @@ secrets:
 #         export MINIO_ROOT_PASSWORD=ROOTUSERPASSWORD
 #
 existingSecret:
-  name: minio-argo-env-configuration
+  name: minio-r4iny-env-configuration
 ###
 # Root key for MinIO Tenant Chart
 tenant:
@@ -41,7 +41,7 @@ tenant:
   # The Tenant name
   #
   # Change this to match your preferred MinIO Tenant name.
-  name: minio-argo
+  name: minio-r4iny
   ###
   # Specify the Operator container image to use for the deployment.
   # ``image.tag`` 
@@ -67,7 +67,7 @@ tenant:
   #
   image:
     repository: quay.io/minio/minio
-    tag: RELEASE.2023-11-15T20-43-25Z
+    tag: RELEASE.2024-01-29T03-56-32Z
     pullPolicy: IfNotPresent
   ###
   #
@@ -83,7 +83,7 @@ tenant:
   # The Kubernetes secret name that contains MinIO environment variable configurations.
   # The secret is expected to have a key named config.env containing environment variables exports.
   configuration:
-    name: minio-argo-env-configuration
+    name: minio-r4iny-env-configuration
   ###
   # Top level key for configuring MinIO Pool(s) in this Tenant.
   #
@@ -93,10 +93,10 @@ tenant:
     # The number of MinIO Tenant Pods / Servers in this pool.
     # For standalone mode, supply 1. For distributed mode, supply 4 or more.
     # Note that the operator does not support upgrading from standalone to distributed mode.
-    - servers: 3
+    - servers: 4
       ###
       # Custom name for the pool
-      name: pool
+      name: r4iny
       ###
       # The number of volumes attached per MinIO Tenant Pod / Server.
       volumesPerServer: 3
