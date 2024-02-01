@@ -252,7 +252,7 @@ tenant:
   ###
   # The `PodManagement <https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#pod-management-policy>`__ policy for MinIO Tenant Pods. 
   # Can be "OrderedReady" or "Parallel"
-  podManagementPolicy: OrderedReady
+  podManagementPolicy: Parallel
   # The `Liveness Probe <https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes>`__ for monitoring Tenant pod liveness. 
   # Tenant pods will be restarted if the probe fails.
   liveness: { }
