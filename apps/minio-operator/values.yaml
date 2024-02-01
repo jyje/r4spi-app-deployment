@@ -154,9 +154,9 @@ operator:
   # If no worker nodes can meet the specified requests, the Operator may fail to deploy.
   resources:
     requests:
-      cpu: 50m
-      memory: 50Mi
-      ephemeral-storage: 100Mi
+      cpu: 150m
+      memory: 250Mi
+      ephemeral-storage: 200Mi
 
 ###
 # Root key for Operator Console
