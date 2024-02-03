@@ -787,7 +787,7 @@ artifactRepository:
   s3:
     bucket: argo-workflows
     # endpoint: minio-r4iny-hl.minio-tenant.svc.cluster.local:9000
-    endpoint: minio.minio-tenant.svc.cluster.local:443
+    endpoint: minio.minio-tenant.svc.cluster.local:80
     insecure: true
     accessKeySecret:
       name: argo-cred
