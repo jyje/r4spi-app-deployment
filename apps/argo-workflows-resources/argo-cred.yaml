@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argo-cred
+type: Opaque
+stringData:
+  psql-username: app
+  psql-password: GPH5qDhIWSrE7FeutCAUgN7lPnFOOoKcpPqVPeYt39cpHOFAfD9b7i2b1g3fFBco
+  minio-accesskey: j0iQviP2TdbN5kHjMwB4
+  minio-secretkey: 2xKybM7PZXjWq2EatP8KmBKyKGoE69fBotiZptoC
