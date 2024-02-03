@@ -241,6 +241,13 @@ configmap:
         - name: Storage
           icon: fas fa-hdd
           items:
+          - name: OpenMediaVault
+            # type: Ping
+            logo: https://avatars.githubusercontent.com/u/1897994
+            subtitle: NAS for Kubernetes
+            tag: "omv #nas #storage"
+            # url: https://omv.app.jyje.online
+
           - name: Longhorn
             logo: https://avatars.githubusercontent.com/u/51335366
             subtitle: Block storage for Kubernetes
