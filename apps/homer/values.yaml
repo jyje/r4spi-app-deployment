@@ -179,6 +179,14 @@ configmap:
         - name: Applications
           icon: fas fa-rocket
           items:
+          - name: "Weather"
+            type: "OpenWeather"
+            location: Anyang-si, KR # or "Amsterdam"
+            locationId: 1846898 # or "2759794"
+            apikey: "c54cd3ebd0797d1c057db2091a98b609" # API key from https://openweathermap.org/api.
+            units: "metric" # metric, imperial, kelvin. Defaults to kelvin.
+            background: "square" # square, circle, none. Defaults to none.
+
           - name: Grafana
             type: Ping
             logo: https://grafana.com/static/img/menu/grafana2.svg
