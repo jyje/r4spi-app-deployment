@@ -1,0 +1,26 @@
+annotations:
+  artifacthub.io/changes: |-
+    - kind: added
+      description: make app version static to version 5.8.3
+  artifacthub.io/links: |-
+    - name: App Source
+      url: https://github.com/MauriceNino/dashdot
+    - name: Chart Source
+      url: https://github.com/oben01/charts/tree/main/charts/dashdot
+  artifacthub.io/signKey: |
+    fingerprint: FA3F63F603B62356663A88F073AE49623786E060
+    url: https://oben01.github.io/charts/pgp_keys.asc
+apiVersion: v2
+appVersion: v5.8.3
+description: A Helm chart to deploy dashdot for Kubernetes
+home: https://oben01.github.io/charts/charts/dashdot/
+icon: https://raw.githubusercontent.com/oben01/charts/main/charts/dashdot/icon.svg
+keywords:
+- dashdot
+- dashboard
+kubeVersion: '>=1.22.0-0'
+name: dashdot
+sources:
+- https://github.com/MauriceNino/dashdot
+type: application
+version: 1.0.5
