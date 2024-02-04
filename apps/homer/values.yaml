@@ -252,7 +252,7 @@ configmap:
           - name: OpenMediaVault
             # type: Ping
             logo: https://avatars.githubusercontent.com/u/1897994
-            subtitle: NAS for NFS Storage
+            subtitle: NAS for NFS storage
             tag: "omv #nas #nfs #storage"
             # url: https://omv.app.jyje.online
 
