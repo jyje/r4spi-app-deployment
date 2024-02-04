@@ -252,8 +252,8 @@ configmap:
           - name: OpenMediaVault
             # type: Ping
             logo: https://avatars.githubusercontent.com/u/1897994
-            subtitle: NAS for Kubernetes
-            tag: "omv #nas #storage"
+            subtitle: NAS for NFS Storage
+            tag: "omv #nas #nfs #storage"
             # url: https://omv.app.jyje.online
 
           - name: Longhorn
