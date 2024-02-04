@@ -178,6 +178,7 @@ controller:
       maxOpenConns: 0
     nodeStatusOffLoad: true
     archive: true
+    archiveTTL: 365d
     postgresql:
       host: cnpg-cluster-r4iny-rw.cnpg-cluster.svc.cluster.local
       port: 5432
