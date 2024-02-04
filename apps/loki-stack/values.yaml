@@ -97,6 +97,10 @@ prometheus:
       static_configs:
         - targets:
           - argo-workflow-controller.argo.svc.cluster.local:8080
+    - job_name: argo-cd
+      static_configs:
+        - targets:
+          - argocd-application-controller-metrics.argocd.svc.cluster.local:8082
 
 filebeat:
   enabled: false
