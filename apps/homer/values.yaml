@@ -159,22 +159,6 @@ configmap:
         # Services
         # First level array represent a group.
         # Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
-        # services:
-        #   - name: "Applications"
-        #     icon: "fas fa-cloud"
-        #     items:
-        #       - name: "Awesome app"
-        #         logo: "assets/tools/sample.png"
-        #         subtitle: "Bookmark example"
-        #         tag: "app"
-        #         keywords: "self hosted reddit"
-        #         url: "https://www.reddit.com/r/selfhosted/"
-        #         target: "_blank" # optional html a tag target attribute
-        #       - name: "Another one"
-        #         logo: "assets/tools/sample2.png"
-        #         subtitle: "Another application"
-        #         tag: "app"
-        #         url: "#"
         services:
         - name: Applications
           icon: fas fa-rocket
@@ -267,23 +251,3 @@ configmap:
             subtitle: Object storage for Kubernetes
             tag: "minio #operator #dbaas #s3 #storage"
             url: https://minio.app.jyje.online
-
-
-        # - name: Device
-        #   icon: fas fa-screwdriver-wrench
-        #   items: []
-
-
-        # - name: My Sites
-        #   icon: fas fa-user-astronaut
-        #   items:
-        #   - name: jyje.online
-        #     type: Ping
-        #     logo: https://jyje.online/assets/icons/icon-128x128.png
-        #     subtitle: Official bio
-        #     tag: cv resume
-        #     url: https://jyje.online
-
-        # - name: "In Progress"
-        #   icon: fab fa-docker
-        #   items: []
