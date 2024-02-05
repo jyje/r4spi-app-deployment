@@ -160,8 +160,8 @@ configmap:
         # First level array represent a group.
         # Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
         services:
-        - name: Applications
-          icon: fas fa-rocket
+        - name: Widgets
+          icon: fas fa-cogs
           items:
           - name: "Weather"
             type: "OpenWeather"
@@ -171,6 +171,9 @@ configmap:
             units: "metric" # metric, imperial, kelvin. Defaults to kelvin.
             background: "square" # square, circle, none. Defaults to none.
 
+        - name: Applications
+          icon: fas fa-rocket
+          items:
           - name: Grafana
             type: Ping
             logo: https://grafana.com/static/img/menu/grafana2.svg
@@ -234,11 +237,11 @@ configmap:
           icon: fas fa-hdd
           items:
           - name: OpenMediaVault
-            # type: Ping
+            type: Ping
             logo: https://avatars.githubusercontent.com/u/1897994
             subtitle: NAS for NFS storage
             tag: "omv #nas #nfs #storage"
-            # url: https://omv.app.jyje.online
+            url: https://omv.app.jyje.online
 
           - name: Longhorn
             logo: https://avatars.githubusercontent.com/u/51335366
