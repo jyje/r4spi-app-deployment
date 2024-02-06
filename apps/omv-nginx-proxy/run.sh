@@ -2,12 +2,12 @@ helm repo add minio-operator https://operator.min.io
 helm repo update
 
 helm pull bitnami/nginx --untar
-mv nginx nginx-proxy-omv
-cd nginx-proxy-omv
+mv nginx omv-nginx-proxy
+cd omv-nginx-proxy
 
 helm upgrade --cleanup-on-fail --install \
     -n omv --create-namespace \
     -f values.yaml \
-    nginx-proxy-omv . 
+    omv-nginx-proxy . 
 
-helm uninstall nginx-proxy-omv -n omv
+helm uninstall omv-nginx-proxy -n omv
