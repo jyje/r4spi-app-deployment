@@ -1,0 +1,183 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homer-config
+data:
+  config.yml: |
+    # Homepage configuration
+    # See https://fontawesome.com/v5/search for icons options
+
+    title: "Dashboard"
+    subtitle: "app.jyje.online"
+    logo: "https://jyje.online/assets/icons/icon-square-256x256.png"
+    # icon: "fa-solid fa-m" # Optional icon
+
+    connectivityCheck: true
+
+    defaults:
+      layout: columns # Either 'columns', or 'list'
+      colorTheme: light # One of 'auto', 'light', or 'dark'
+
+    header: true
+    footer: |
+      Since 2024 ⓒ <a href="https://app.jyje.online">app.jyje.online</a>
+      with <a href="https://jyje.online">Jeayoung Jeon</a>.
+      Powered by <a href="https://github.com/bastienwirtz/homer">Homer</a>.
+
+    # Optional theme customization
+    theme: default
+    colors:
+      light:
+        highlight-primary: "#680C2C"
+        highlight-secondary: "#340616"
+        highlight-hover: "#680C2C"
+        background: "#fafafa"
+        card-background: "#ffffff"
+        text: "#363636"
+        text-header: "#ffffff"
+        text-title: "#303030"
+        text-subtitle: "#424242"
+        card-shadow: rgba(0, 0, 0, 0.1)
+        link: "#3273dc"
+        link-hover: "#363636"
+      dark:
+        highlight-primary: "#680C2C"
+        highlight-secondary: "#340616"
+        highlight-hover: "#680C2C"
+        background: "#212631"
+        card-background: "#2b2b2b"
+        text: "#eaeaea"
+        text-header: "#ffffff"
+        text-title: "#fafafa"
+        text-subtitle: "#f5f5f5"
+        card-shadow: rgba(0, 0, 0, 0.4)
+        link: "#3273dc"
+        link-hover: "#ffdd57"
+
+    # Optional message
+    message:
+      #url: https://b4bz.io
+      style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
+      title: NOTICE
+      # icon: fa fa-grin
+      icon: fas fa-info
+      content: |
+        This is a collection of applications for my demo cluster. It is not intended for production use.
+
+    # This is a dummy homepage demo. <br>
+    # Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>
+
+    # Optional navbar
+    # links: [] # Allows for navbar (dark mode, layout, and search) without any links
+    links:
+      - name: "Bio"
+        icon: "fas fa-user-astronaut"
+        url: "https://jyje.online"
+        # target: "_blank" # optional html a tag target attribute
+      - name: "Blog"
+        icon: "fas fa-pen-to-square"
+        url: "https://blog.jyje.online"
+      # this will link to a second homer page that will load config from additional-page.yml and keep default config values as in config.yml file
+      # see url field and assets/additional-page.yml.dist used in this example:
+      #- name: "another page!"
+      #  icon: "fas fa-file-alt"
+      #  url: "#additional-page"
+
+    # Services
+    # First level array represent a group.
+    # Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+    services:
+    - name: Widgets
+      icon: fas fa-cogs
+      items:
+      - name: "Weather"
+        type: "OpenWeather"
+        location: Anyang-si, KR # or "Amsterdam"
+        locationId: 1846898 # or "2759794"
+        apikey: "c54cd3ebd0797d1c057db2091a98b609" # API key from https://openweathermap.org/api.
+        units: "metric" # metric, imperial, kelvin. Defaults to kelvin.
+        background: "square" # square, circle, none. Defaults to none.
+
+    - name: Applications
+      icon: fas fa-rocket
+      items:
+      - name: Grafana
+        type: Ping
+        logo: https://grafana.com/static/img/menu/grafana2.svg
+        subtitle: Cluster monitoring
+        tag: "grafana #monitoring #dashboard #plg"
+        url: https://grafana.app.jyje.online
+
+      - name: Argo Workflows
+        type: Ping
+        logo: https://argoproj.github.io/argo-workflows/assets/logo.png
+        subtitle: Workflow engine
+        tag: "argo-workflows #argo #workflow #pipeline #cicd"
+        url: https://workflow.app.jyje.online
+
+    - name: Management
+      icon: fas fa-microchip
+      items:
+      - name: Homer
+        type: Ping
+        logo: logo.png
+        subtitle: This dashboard
+        tag: "homer #dashboard #monitoring"
+        url: https://app.jyje.online
+
+      - name: Portainer
+        # type: Portainer
+        # apikey: "ptr_qXkCiCTml2HK0Y9zrtJ2zLj9zVNJxQpnSAlYxjylhJU="
+        # environments:
+        # - "r4spi-microk8s"
+        type: Ping
+        logo: https://avatars.githubusercontent.com/u/22225832
+        subtitle: Cluster administration
+        tag: "portainer #admin #catalog"
+        url: "https://portainer.app.jyje.online"
+
+      - name: Argo CD
+        type: Ping
+        logo: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
+        subtitle: App deployment
+        tag: "argocd #argo #gitops #cicd"
+        url: https://cd.app.jyje.online
+
+      - name: Keycloak
+        type: Ping
+        logo: https://avatars.githubusercontent.com/u/4921466
+        subtitle: Access management
+        tag: "keycloak #login #iam #rabc"
+        url: https://keycloak.app.jyje.online
+
+
+    - name: Database
+      icon: fas fa-database
+      items:
+      - name: CloudNativePG
+        logo: https://cloudnative-pg.io/images/hero_image.svg
+        subtitle: PostgreSQL operator
+        tag: "cnpg #operator #dbaas #psql #database"
+
+
+    - name: Storage
+      icon: fas fa-hdd
+      items:
+      - name: OpenMediaVault
+        type: Ping
+        logo: https://avatars.githubusercontent.com/u/1897994
+        subtitle: NAS for NFS storage
+        tag: "omv #nas #nfs #storage"
+        url: https://omv.app.jyje.online
+
+      - name: Longhorn
+        logo: https://avatars.githubusercontent.com/u/51335366
+        subtitle: Block storage for Kubernetes
+        tag: "longhorn #storageclass #storage #rancher"
+
+      - name: MinIO
+        type: Ping
+        logo: https://min.io/resources/img/logo/MINIO_Bird.png
+        subtitle: Object storage for Kubernetes
+        tag: "minio #operator #dbaas #s3 #storage"
+        url: https://minio.app.jyje.online

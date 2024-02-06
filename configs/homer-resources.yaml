@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homer-resources
+spec:
+  destination:
+    namespace: homer
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: apps/homer-resources
+    repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
+    targetRevision: develop
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated: {}
