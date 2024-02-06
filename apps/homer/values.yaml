@@ -12,7 +12,7 @@ image:
   # -- image repository
   repository: b4bz/homer
   # @default -- chart.appVersion
-  tag:
+  tag: v23.10.1
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -60,7 +60,7 @@ securityContext:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /www/assets
 
     # type: pvc
@@ -72,7 +72,7 @@ persistence:
 configmap:
   config:
     # -- Store homer configuration as a ConfigMap
-    enabled: true
+    enabled: false
     # -- Homer configuration. See [image documentation](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md) for more information.
     # @default -- See values.yaml
     data:
