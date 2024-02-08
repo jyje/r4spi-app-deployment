@@ -6,7 +6,7 @@ replicaCount: 1
 
 # If enterpriseEdition is enabled, then use the values below _instead_ of those in .image
 enterpriseEdition: 
-  enabled: true
+  enabled: false
   image:
     repository: portainer/portainer-ee
     tag: 2.19.4
