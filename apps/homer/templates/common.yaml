@@ -1,26 +1,16 @@
-{{/* Make sure all variables are set properly */}}
-{{- include "common.values.setup" . }}
+{{- include "bjw-s.common.loader.init" . }}
 
-{{/* Append the hardcoded settings */}}
-{{- define "homer.harcodedValues" -}}
-  {{- if .Values.configmap.config.enabled }}
-  {{/* merge homer specific annotations with podAnnotations*/}}
-  podAnnotations:
-    configmap/checksum: "{{ .Values.configmap.config.data | toYaml | sha256sum }}"
-  {{- end }}
-
-  {{- if .Values.configmap.config.enabled }}
-  {{/* Append the configMap volume to the volumes */}}
-  persistence:
-    config:
-      enabled: true
-      type: "configMap"
-      name: "{{ include "common.names.fullname" . }}-config"
-      mountPath: "/www/assets/config.yml"
-      subPath: "config.yml"
-  {{- end }}
+{{- define "homer.hardcodedValues" -}}
+# Set the nameOverride based on the release name if no override has been set
+{{ if not .Values.global.nameOverride }}
+global:
+  nameOverride: "{{ .Release.Name }}"
+{{ end }}
 {{- end -}}
-{{- $_ := mergeOverwrite .Values (include "homer.harcodedValues" . | fromYaml) -}}
+
+
+
+{{- $_ := mergeOverwrite .Values (include "homer.hardcodedValues" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "bjw-s.common.loader.generate" . }}

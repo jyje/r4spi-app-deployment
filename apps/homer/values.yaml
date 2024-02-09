@@ -5,25 +5,37 @@
 # https://github.com/bjw-s/helm-charts/blob/main/charts/library/common/values.yaml
 #
 
-controller:
-  replicas: 2
+controllers:
+  main:
+    replicas: 2
+    initContainers:
+      get-assets:
+        image:
+          repository: alpine/git
+          tag: latest
+          imagePullPolicy: Always
+        command: [sh, -c]
+        args: |
+          git clone -b jyje https://github.com/jyje/homer.git /repo &&
+          find /repo/public/assets/ \
+            -type f \
+            -name "*.dist" \
+            -exec rm {} \; &&
+          cp -r /repo/public/assets/* /www/assets/
+    containers:
+      main:
+        image:
+          repository: b4bz/homer
+          tag: v23.10.1
+          pullPolicy: Always
+        env:
+        - name: TZ
+          value: Seoul/Asia
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          runAsGroup: 1000
 
-image:
-  # -- image repository
-  repository: b4bz/homer
-  # @default -- chart.appVersion
-  tag: v23.10.1
-  # -- image pull policy
-  pullPolicy: IfNotPresent
-
-# -- environment variables.
-# @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: Seoul/Asia
-
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     type: ClusterIP
@@ -32,48 +44,26 @@ service:
         port: 8080
 
 ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
-  # @default -- See values.yaml
   main:
     enabled: true
-    ingressClassName: nginx
+    className: nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
     - host: app.jyje.online
       paths:
-      - path: /
+      - service:
+          name: homer
+          port: 8080
+        path: /
     tls:
     - hosts:
       - app.jyje.online
       secretName: app-letsencrypt-tls
 
-securityContext:
-  # -- Specify the user ID the application will run as
-  runAsUser: 1000
-  # -- Enable validation that the container must run as non-root user
-  runAsNonRoot: true
-  # -- Specify the group ID the application will run as
-  runAsGroup: 1000
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
-  config:
+  assets:
     enabled: true
-    mountPath: /www/assets
-
-    # type: pvc
-    # existingClaim: dashboard-homer-config
-
-    type: configMap
-    name: homer-config
-
-configmap:
-  config:
-    # -- Store homer configuration as a ConfigMap
-    enabled: false
-    # -- Homer configuration. See [image documentation](https://github.com/bastienwirtz/homer/blob/main/docs/configuration.md) for more information.
-    # @default -- See values.yaml
-    data:
-      config.yml:
+    type: emptyDir
+    globalMounts:
+    - path: /www/assets
