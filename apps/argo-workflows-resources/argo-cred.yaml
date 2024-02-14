@@ -5,6 +5,6 @@ metadata:
 type: Opaque
 stringData:
   psql-username: app
-  psql-password: GPH5qDhIWSrE7FeutCAUgN7lPnFOOoKcpPqVPeYt39cpHOFAfD9b7i2b1g3fFBco
+  psql-password: p5xF1PJ1T6z69sjVC9khniBTUvAMsToYzKdQxisXTkzK8yUT1dENh6ejhlVljKfq
   minio-accesskey: j0iQviP2TdbN5kHjMwB4
   minio-secretkey: 2xKybM7PZXjWq2EatP8KmBKyKGoE69fBotiZptoC
