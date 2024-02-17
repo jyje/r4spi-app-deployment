@@ -2,6 +2,8 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: cnpg-cluster-r4iny
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
 spec:
   instances: 3
 
