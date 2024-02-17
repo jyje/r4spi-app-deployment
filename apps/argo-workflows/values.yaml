@@ -185,11 +185,11 @@ controller:
       database: app
       tableName: argo_workflows
       userNameSecret:
-        name: argo-cred
-        key: psql-username
+        name: argo-psql-secret
+        key: username
       passwordSecret:
-        name: argo-cred
-        key: psql-password
+        name: argo-psql-secret
+        key: password
 
   # -- Default values that will apply to all Workflows from this controller, unless overridden on the Workflow-level.
   # Only valid for 2.7+
@@ -791,11 +791,11 @@ artifactRepository:
     endpoint: minio.minio-tenant.svc.cluster.local:80
     insecure: true
     accessKeySecret:
-      name: argo-cred
-      key: minio-accesskey
+      name: argo-minio-secret
+      key: accesskey
     secretKeySecret:
-      name: argo-cred
-      key: minio-secretkey
+      name: argo-minio-secret
+      key: secretkey
   # s3: {}
     # # Note the `key` attribute is not the actual secret, it's the PATH to
     # # the contents in the associated secret, as defined by the `name` attribute.
