@@ -41,8 +41,6 @@ grafana:
       labelValue: ""
       enabled: true
       maxLines: 1000
-  image:
-    tag: 10.3.1 # target version
   adminPassword: abc123abc123!
   ingress:
     enabled: true
