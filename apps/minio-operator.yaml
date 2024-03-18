@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-workflows-resources
+  name: minio-operator
 spec:
   destination:
-    namespace: argo
+    namespace: minio-operator
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/argo-workflows-resources
+    path: helm-charts/minio-operator
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
   project: default

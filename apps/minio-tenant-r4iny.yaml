@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-issuers
+  name: minio-tenant-r4iny
 spec:
   destination:
+    namespace: minio-tenant
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/cert-manager-issuers
+    path: helm-charts/minio-tenant-r4iny
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-    helm:
-      valueFiles:
-        - values.yaml
   project: default
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated: {}

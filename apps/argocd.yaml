@@ -1,18 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: reflector
+  name: argocd
 spec:
   destination:
-    namespace: reflector
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/reflector
+    path: helm-charts/argocd
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-    helm:
-      valueFiles:
-        - values.yaml
   project: default
   syncPolicy:
     syncOptions:

@@ -7,12 +7,9 @@ spec:
     namespace: dashdot
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/dashdot
+    path: helm-charts/dashdot
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-    helm:
-      valueFiles:
-        - values.yaml
   project: default
   syncPolicy:
     syncOptions:

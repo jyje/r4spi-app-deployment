@@ -1,18 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: homer
+  name: reflector
 spec:
   destination:
-    namespace: homer
+    namespace: reflector
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/homer
+    path: helm-charts/reflector
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-    helm:
-      valueFiles:
-        - values.yaml
   project: default
   syncPolicy:
     syncOptions:

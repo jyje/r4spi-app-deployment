@@ -1,18 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: portainer
+  name: homer
 spec:
   destination:
-    namespace: portainer
+    namespace: homer
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/portainer
+    path: helm-charts/homer
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-    helm:
-      valueFiles:
-        - values.yaml
   project: default
   syncPolicy:
     syncOptions:

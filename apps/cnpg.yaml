@@ -1,18 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: omv-nginx-proxy
+  name: cnpg
 spec:
   destination:
-    namespace: omv
+    namespace: cnpg-system
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/omv-nginx-proxy
+    path: helm-charts/cloudnative-pg
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-    helm:
-      valueFiles:
-        - values.yaml
   project: default
   syncPolicy:
     syncOptions:

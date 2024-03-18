@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cnpg-cluster-r4iny
+  name: argo-workflows
 spec:
   destination:
-    namespace: cnpg-cluster
+    namespace: argo
     server: 'https://kubernetes.default.svc'
   source:
-    path: apps/cnpg-cluster-r4iny
+    path: helm-charts/argo-workflows
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
   project: default
