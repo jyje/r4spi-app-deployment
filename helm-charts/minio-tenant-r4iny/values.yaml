@@ -19,21 +19,21 @@ secrets:
   name: minio-r4iny-env-configuration
   accessKey: minio 
   secretKey: minio123
-###
-# The name of an existing Kubernetes secret to import to the MinIO Tenant
-# The secret must contain a key ``config.env``.
-# The values should be a series of export statements to set environment variables for the Tenant.
-# For example:
-#
-# .. code-block:: shell
-#
-#    stringData:
-#       config.env: | -
-#         export MINIO_ROOT_USER=ROOTUSERNAME
-#         export MINIO_ROOT_PASSWORD=ROOTUSERPASSWORD
-#
-existingSecret:
-  name: minio-r4iny-env-configuration
+  ###
+  # The name of an existing Kubernetes secret to import to the MinIO Tenant
+  # The secret must contain a key ``config.env``.
+  # The values should be a series of export statements to set environment variables for the Tenant.
+  # For example:
+  #
+  # .. code-block:: shell
+  #
+  #    stringData:
+  #       config.env: | -
+  #         export MINIO_ROOT_USER=ROOTUSERNAME
+  #         export MINIO_ROOT_PASSWORD=ROOTUSERPASSWORD
+  #
+  #existingSecret:
+  #  name: myminio-env-configuration
 ###
 # Root key for MinIO Tenant Chart
 tenant:
@@ -45,14 +45,14 @@ tenant:
   ###
   # Specify the Operator container image to use for the deployment.
   # ``image.tag`` 
-  # For example, the following sets the image to the ``quay.io/minio/operator`` repo and the v5.0.11 tag.
+  # For example, the following sets the image to the ``quay.io/minio/operator`` repo and the v5.0.14 tag.
   # The container pulls the image if not already present:
   #
   # .. code-block:: yaml
   # 
   #    image:
   #       repository: quay.io/minio/minio
-  #       tag: RELEASE.2023-11-15T20-43-25Z
+  #       tag: RELEASE.2024-03-15T01-07-19Z
   #       pullPolicy: IfNotPresent
   #
   # The chart also supports specifying an image based on digest value:
@@ -67,7 +67,7 @@ tenant:
   #
   image:
     repository: quay.io/minio/minio
-    tag: RELEASE.2023-11-15T20-43-25Z
+    tag: RELEASE.2024-03-15T01-07-19Z
     pullPolicy: IfNotPresent
   ###
   #
@@ -99,7 +99,7 @@ tenant:
       name: pool
       ###
       # The number of volumes attached per MinIO Tenant Pod / Server.
-      volumesPerServer: 2
+      volumesPerServer: 4
       ###
       # The capacity per volume requested per MinIO Tenant Pod.
       size: 10Gi
@@ -110,6 +110,9 @@ tenant:
       # Please make sure to set xfs for "csi.storage.k8s.io/fstype" parameter under StorageClass.parameters.
       # Docs: https://github.com/kubernetes-sigs/aws-ebs-csi-driver/blob/master/docs/parameters.md
       storageClassName: longhorn
+      ###
+      # Specify `storageAnnotations <https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/>`__ to associate to PVCs.
+      storageAnnotations: { }
       ###
       # Specify `annotations <https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/>`__ to associate to Tenant pods.
       annotations: { }
@@ -332,20 +335,19 @@ tenant:
   #  # Image from tag (original behavior), for example:
   #  # image:
   #  #   repository: quay.io/minio/kes
-  #  #   tag: 2023-11-10T10-44-28Z
+  #  #   tag: 2024-03-13T17-52-13Z
   #  # Image from digest (added after original behavior), for example:
   #  # image:
   #  #   repository: quay.io/minio/kes@sha256
   #  #   digest: fb15af611149892f357a8a99d1bcd8bf5dae713bd64c15e6eb27fbdb88fc208b
   #  image:
   #    repository: quay.io/minio/kes
-  #    tag: 2023-11-10T10-44-28Z
+  #    tag: 2024-03-13T17-52-13Z
   #    pullPolicy: IfNotPresent
   #  env: [ ]
   #  replicas: 2
   #  configuration: |-
   #    address: :7373
-  #    root: _ # Effectively disabled since no root identity necessary.
   #    tls:
   #      key: /tmp/kes/server.key   # Path to the TLS private key
   #      cert: /tmp/kes/server.crt # Path to the TLS certificate
@@ -353,14 +355,8 @@ tenant:
   #        identities: []
   #        header:
   #          cert: X-Tls-Client-Cert
-  #    policy:
-  #      my-policy:
-  #        paths:
-  #        - /v1/key/create/*
-  #        - /v1/key/generate/*
-  #        - /v1/key/decrypt/*
-  #        identities:
-  #        - ${MINIO_KES_IDENTITY}
+  #    admin:
+  #      identity: ${MINIO_KES_IDENTITY}
   #    cache:
   #      expiry:
   #        any: 5m0s
@@ -368,7 +364,7 @@ tenant:
   #    log:
   #      error: on
   #      audit: off
-  #    keys:
+  #    keystore:
   #      # KES configured with fs (File System mode) doesn't work in Kubernetes environments and is not recommended
   #      # use a real KMS
   #      # fs:
@@ -419,6 +415,11 @@ tenant:
   #    runAsGroup: 1000
   #    runAsNonRoot: true
   #    fsGroup: 1000
+  #  containerSecurityContext:
+  #    runAsUser: 1000
+  #    runAsGroup: 1000
+  #    runAsNonRoot: true
+  #    allowPrivilegeEscalation: false
 ###
 # Configures `Ingress <https://kubernetes.io/docs/concepts/services-networking/ingress/>`__ for the Tenant S3 API and Console.
 #
