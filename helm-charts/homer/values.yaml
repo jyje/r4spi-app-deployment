@@ -27,7 +27,7 @@ controllers:
       main:
         image:
           repository: b4bz/homer
-          tag: v23.10.1
+          tag: v24.04.1
           pullPolicy: Always
         env:
         - name: TZ
