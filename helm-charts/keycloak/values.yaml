@@ -577,7 +577,7 @@ ingress:
   ## @param ingress.hostname Default host for the ingress record (evaluated as template)
   ##
   # hostname: keycloak.local
-  hostname: keycloak.app.jyje.online
+  hostname: keycloak.app.jyje.live
   ## @param ingress.path [string] Default path for the ingress record (evaluated as template)
   ##
   path: "{{ .Values.httpRelativePath }}"
@@ -599,9 +599,9 @@ ingress:
     nginx.ingress.kubernetes.io/configuration-snippet: |
       more_set_headers "Access-Control-Allow-Origin: $http_origin";
     # nginx.ingress.kubernetes.io/configuration-snippet: |
-    #   frame-ancestors 'self' http://keycloak.app.jyje.online;
+    #   frame-ancestors 'self' http://keycloak.app.jyje.live;
     # frame-src 'self';
-    # frame-ancestors 'self' http://keycloak.app.jyje.online;
+    # frame-ancestors 'self' http://keycloak.app.jyje.live;
     # more_set_headers "Access-Control-Allow-Origin: $http_origin";
     # default-src 'self';
     # object-src 'none';
@@ -657,7 +657,7 @@ ingress:
   # extraTls: []
   extraTls:
   - hosts:
-      - keycloak.app.jyje.online
+      - keycloak.app.jyje.live
     secretName: keycloak-letsencrypt-tls
   ## @param ingress.secrets If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
@@ -691,7 +691,7 @@ ingress:
   # extraRules:
   # -
   #   # Ingress host
-  #   host: keycloak.app.jyje.online
+  #   host: keycloak.app.jyje.live
   #   # Paths for the host
   #   paths:
   #     - path: /

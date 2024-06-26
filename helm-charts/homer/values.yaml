@@ -51,7 +51,7 @@ ingress:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
     hosts:
-    - host: app.jyje.online
+    - host: app.jyje.live
       paths:
       - service:
           name: homer
@@ -59,7 +59,7 @@ ingress:
         path: /
     tls:
     - hosts:
-      - app.jyje.online
+      - app.jyje.live
       secretName: app-letsencrypt-tls
 
 persistence:

@@ -294,9 +294,9 @@ console:
       nginx.ingress.kubernetes.io/enable-cors: "true"
     tls:
     - hosts:
-      - minio.app.jyje.online
+      - minio.app.jyje.live
       secretName: minio-letsencrypt-tls
-    host: minio.app.jyje.online
+    host: minio.app.jyje.live
     path: /
     pathType: Prefix
   ###

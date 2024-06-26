@@ -69,7 +69,7 @@ ingress:
     # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
   # Note: Hosts and paths are of type array
   hosts:
-  - host: portainer.app.jyje.online
+  - host: portainer.app.jyje.live
     paths:
     - path: /
       pathType: Prefix
@@ -80,7 +80,7 @@ ingress:
             number: 9000
   tls:
   - hosts:
-    - portainer.app.jyje.online
+    - portainer.app.jyje.live
     secretName: portainer-letsencrypt-tls
 resources: {}
 

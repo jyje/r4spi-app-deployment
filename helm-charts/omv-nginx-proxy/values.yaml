@@ -705,7 +705,7 @@ ingress:
   apiVersion: ""
   ## @param ingress.hostname Default host for the ingress resource
   ##
-  hostname: omv.app.jyje.online # nginx.local
+  hostname: omv.app.jyje.live # nginx.local
   ## @param ingress.path The Path to Nginx. You may need to set this to '/*' in order to use this with ALB ingress controllers.
   ##
   path: /
@@ -766,7 +766,7 @@ ingress:
   # extraTls: []
   extraTls:
     - hosts:
-      - omv.app.jyje.online
+      - omv.app.jyje.live
       secretName: omv-letsencrypt-tls
   ## @param ingress.secrets If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or

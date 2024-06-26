@@ -285,7 +285,7 @@ ingress:
   ## @param ingress.hostName Ingress hostname (your custom domain name, e.g. `infisical.example.org`)
   ## Replace with your own domain
   ##
-  hostName: secret.app.jyje.online
+  hostName: secret.app.jyje.live
   ## @param ingress.tls Ingress TLS hosts (matching above hostName)
   ## Replace with your own domain
   ##

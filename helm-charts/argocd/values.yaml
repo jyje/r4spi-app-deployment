@@ -1984,7 +1984,7 @@ server:
 
     # -- Argo CD server hostname
     ## NOTE: Hostname must be provided if Ingress is enabled
-    hostname: cd.app.jyje.online
+    hostname: cd.app.jyje.live
 
     # -- The path to Argo CD server
     path: /

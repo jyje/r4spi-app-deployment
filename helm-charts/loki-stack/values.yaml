@@ -54,10 +54,10 @@ grafana:
       nginx.ingress.kubernetes.io/cors-allow-methods: HEAD
       nginx.ingress.kubernetes.io/enable-cors: "true"
     hosts:
-    - grafana.app.jyje.online
+    - grafana.app.jyje.live
     tls:
     - hosts:
-      - grafana.app.jyje.online
+      - grafana.app.jyje.live
       secretName: grafana-letsencrypt-tls
 
 prometheus:
@@ -83,10 +83,10 @@ prometheus:
         nginx.ingress.kubernetes.io/cors-allow-methods: HEAD
         nginx.ingress.kubernetes.io/enable-cors: "true"
       hosts:
-      - prometheus.app.jyje.online
+      - prometheus.app.jyje.live
       tls:
       - hosts:
-        - prometheus.app.jyje.online
+        - prometheus.app.jyje.live
         secretName: prometheus-letsencrypt-tls
     persistentVolume:
       size: 20Gi

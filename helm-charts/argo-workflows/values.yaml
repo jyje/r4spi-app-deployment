@@ -624,7 +624,7 @@ server:
     ## Secrets must be manually created in the namespace
     # hosts: []
     hosts:
-    - workflow.app.jyje.online
+    - workflow.app.jyje.live
 
     # -- List of ingress paths
     paths:
@@ -651,7 +651,7 @@ server:
     # tls: []
     tls: 
     - hosts:
-      - workflow.app.jyje.online
+      - workflow.app.jyje.live
       secretName: workflow-letsencrypt-tls
       # - secretName: argoworkflows-example-tls
       #   hosts:
