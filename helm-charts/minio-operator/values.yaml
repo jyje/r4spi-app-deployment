@@ -281,7 +281,7 @@ console:
   #
   # Set the keys to conform to the Ingress controller and configuration of your choice.
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: nginx
     labels: { }
     annotations:
