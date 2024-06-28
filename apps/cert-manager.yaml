@@ -3,14 +3,21 @@ kind: Application
 metadata:
   name: cert-manager
 spec:
-  destination:
-    namespace: cert-manager
-    server: 'https://kubernetes.default.svc'
+  project: default
   source:
     path: helm-charts/cert-manager
     repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
     targetRevision: develop
-  project: default
+    helm:
+      values: |
+        crds:
+          enabled: true
+          keep: true
+        startupapicheck:
+          enabled: false
+  destination:
+    namespace: cert-manager
+    server: 'https://kubernetes.default.svc'
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
