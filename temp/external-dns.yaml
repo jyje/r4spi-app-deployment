@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+spec:
+  project: default
+  source:
+    path: helm-charts/external-dns
+    repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
+    targetRevision: develop
+    helm:
+      values: |
+        provider: 
+          name: godaddy 
+        extraArgs:
+          - --godaddy-api-key=gH9tUd2T1xD5_W8Za5VyXuvEsmGTM6HvTUM
+          - --godaddy-api-secret=QW4jTWKbLjx1zZoEdfdeWY
+  destination:
+    namespace: external-dns
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated: {}
