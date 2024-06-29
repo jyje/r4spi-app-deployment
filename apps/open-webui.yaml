@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: open-webui
+spec:
+  project: default
+  source:
+    path: helm-charts/open-webui
+    repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
+    targetRevision: develop
+    helm:
+      values: |
+        ingress:
+          enabled: true
+          class: "nginx"
+          annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-prod
+          host: llm.app.jyje.live
+          tls: true
+          existingSecret: open-webui-letsencrypt-tls
+  destination:
+    namespace: open-webui
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
