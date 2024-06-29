@@ -15,11 +15,13 @@ spec:
           class: "nginx"
           annotations:
             cert-manager.io/cluster-issuer: letsencrypt-prod
-          host: llm.app.jyje.live
+          host: ollama.app.jyje.live
           tls: true
-          existingSecret: open-webui-letsencrypt-tls
+          existingSecret: ollama-letsencrypt-tls
+        persistence:
+          enabled: true
   destination:
-    namespace: open-webui
+    namespace: ollama
     server: 'https://kubernetes.default.svc'
   syncPolicy:
     automated: {}
