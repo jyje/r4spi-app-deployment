@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ollama
+spec:
+  project: default
+  source:
+    path: helm-charts/ollama
+    repoURL: 'git@github.com:jyje/r4spi-app-deployment.git'
+    targetRevision: develop
+    helm:
+      values: |
+        replicaCount: 2
+        ollama:
+          models:
+            - phi3:3.8b # 2.4 GB
+            - qwen2:1.5b # 935 MB
+        resources:
+          requests:
+            memory: 4096Mi
+            cpu: 1000m
+          limits:
+            memory: 4096Mi
+            cpu: 2000m
+        nodeSelector:
+          app.jyje.live/node.family: raspi-5b
+  destination:
+    namespace: ollama
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
