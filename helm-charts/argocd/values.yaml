@@ -180,6 +180,10 @@ configs:
     # -- Timeout to refresh application data as well as target manifests cache
     timeout.hard.reconciliation: 0s
 
+    # -- Extra accounts
+    policy.default: role:readonly
+    accounts.my_guest: login
+
     # Dex configuration
     # dex.config: |
     #   connectors:
@@ -280,7 +284,7 @@ configs:
 
     # -- The name of the default role which Argo CD will falls back to, when authorizing API requests (optional).
     # If omitted or empty, users may be still be able to login, but will see no apps, projects, etc...
-    policy.default: ''
+    policy.default: role:readonly
 
     # -- File containing user-defined policies and role definitions.
     # @default -- `''` (See [values.yaml])
