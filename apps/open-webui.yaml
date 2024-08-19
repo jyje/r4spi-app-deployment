@@ -10,6 +10,9 @@ spec:
     targetRevision: develop
     helm:
       values: |
+        image:
+          repository: ghcr.io/open-webui/open-webui
+          tag: v0.3.12
         ingress:
           enabled: true
           class: "nginx"
