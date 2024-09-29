@@ -1,13 +1,13 @@
 helm repo add longhorn https://charts.longhorn.io
 helm repo update
 
-helm pull longhorn/longhorn --untar 
-cd longhorn
+helm pull longhorn/longhorn --untar --version 1.7.1
+mv longhorn longhorn-1.7.1
 
-helm upgrade --cleanup-on-fail \
+helm upgrade --install --cleanup-on-fail \
     -n longhorn-system --create-namespace \
-    --install \
     -f values.yaml \
-    longhorn .
+    longhorn \
+    helm-charts/longhorn-1.7.1
 
 helm uninstall longhorn -n longhorn-system
